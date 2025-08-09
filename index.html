@@ -3,99 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sip N Chill - Kerala's premium branded vending machines delivering drinks, snacks, and more at prime locations." />
-  <meta name="keywords" content="vending machines, Kerala, premium vending, drinks, snacks, ice cream, Sip N Chill" />
+  <meta name="description" content="Sip N Chill - Kerala’s first premium branded vending machines. Drinks, Gym Supplements, and Ice Creams in one place." />
+  <meta name="keywords" content="vending machine Kerala, premium vending, gym vending, drink vending, ice cream vending" />
   <meta name="author" content="Sip N Chill" />
-  <title>Sip N Chill - Premium Vending in Kerala</title>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome for Icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <title>Sip N Chill - Premium Vending Machines</title>
 
   <style>
-    * {margin:0; padding:0; box-sizing:border-box;}
+    /* Reset & base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #0f0f0f;
+      font-family: 'Segoe UI', sans-serif;
+      background: #000;
       color: #fff;
-      line-height: 1.6;
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
-    img {max-width:100%; display:block;}
-    a {text-decoration:none; color:inherit;}
-    /* Navigation */
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Luxury Navbar */
     .luxury-nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(15,15,15,0.95);
-      backdrop-filter: blur(10px);
+      top: 0; left: 0; width: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
       z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-    .nav-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.8rem 1.5rem;
-    }
-    .nav-logo {
-      height: 50px;
-      cursor: pointer;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
+    .nav-logo { height: 50px; cursor: pointer; }
+    .nav-links { display: flex; gap: 1.5rem; }
     .nav-link {
       font-weight: 500;
-      transition: color 0.3s;
+      position: relative;
     }
-    .nav-link:hover { color: gold; }
-    /* Mobile menu button */
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
+    .nav-link::after {
+      content: "";
+      position: absolute; left: 0; bottom: -4px;
+      width: 0; height: 2px;
+      background: #f5d742;
+      transition: width 0.3s ease;
     }
-    @media(max-width: 768px){
-      .nav-links { 
-        position: absolute;
-        top: 70px; left:0; right:0;
-        background: rgba(15,15,15,0.95);
-        flex-direction: column;
-        align-items: center;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-      }
-      .nav-links.active { max-height: 300px; }
-      .mobile-menu-toggle { display: block; }
-    }
+    .nav-link:hover::after { width: 100%; }
 
     /* Sections */
     section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 5rem 1.5rem;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: 5rem 2rem;
+      text-align: center;
     }
-    h2 {
-      font-size: 2.5rem;
-      color: gold;
+    .hero {
+      background: url('assets/images/drinks-vending.png') center/cover no-repeat;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 800px;
+    }
+    h1 {
+      font-size: 3rem;
+      color: #f5d742;
       margin-bottom: 1rem;
     }
     p {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-      color: #ddd;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      opacity: 0.9;
     }
 
     /* Machines */
@@ -103,180 +85,154 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
+      margin-top: 3rem;
     }
     .machine-card {
-      background: #1a1a1a;
-      border-radius: 15px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 1rem;
       overflow: hidden;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
       transition: transform 0.3s ease;
     }
-    .machine-card:hover { transform: translateY(-5px); }
-    .machine-card img {
-      border-bottom: 2px solid gold;
-    }
-    .machine-card h3 {
-      padding: 1rem;
-      color: gold;
-    }
-    .machine-card p {
-      padding: 0 1rem 1rem;
-      color: #ccc;
-    }
+    .machine-card:hover { transform: translateY(-10px); }
+    .machine-card img { height: 220px; object-fit: cover; }
+    .machine-card h3 { margin: 1rem 0; color: #f5d742; }
 
-    /* Brand Story */
-    .story {
-      text-align: center;
-    }
-    .story p {
-      max-width: 800px;
-      margin: auto;
-    }
-
-    /* Locations */
-    .locations ul {
-      list-style: none;
-      padding: 0;
-    }
-    .locations li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    /* Contact Form */
+    /* Partnership Form */
     form {
-      background: #1a1a1a;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255,215,0,0.1);
       max-width: 600px;
-      margin: auto;
-    }
-    form input, form textarea, form button {
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    input, textarea {
       padding: 0.8rem;
-      margin-bottom: 1rem;
       border: none;
-      border-radius: 5px;
+      border-radius: 0.5rem;
       font-size: 1rem;
+      outline: none;
     }
-    form input, form textarea {
-      background: #2a2a2a;
-      color: white;
-    }
-    form button {
-      background: gold;
-      color: black;
-      font-weight: bold;
+    button {
+      background: #f5d742;
+      color: #000;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 0.5rem;
       cursor: pointer;
-      transition: background 0.3s;
+      font-weight: bold;
+      transition: background 0.3s ease;
     }
-    form button:hover { background: #e6b800; }
+    button:hover { background: #fff176; }
 
-    /* Footer */
-    footer {
-      background: #0a0a0a;
-      text-align: center;
-      padding: 1rem;
-      color: #888;
+    /* Animations */
+    .fade-up { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
+    .fade-up.show { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Navbar -->
   <nav class="luxury-nav">
-    <div class="nav-container">
-      <a href="#" class="logo-link">
-        <img src="assets/images/logo.png" alt="Sip N Chill" class="nav-logo">
-      </a>
-      <div class="nav-links" id="navLinks">
-        <a href="#machines" class="nav-link">Machines</a>
-        <a href="#story" class="nav-link">Story</a>
-        <a href="#locations" class="nav-link">Locations</a>
-        <a href="#contact" class="nav-link">Partnership</a>
-      </div>
-      <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
+    <a href="#" class="logo-link">
+      <img src="assets/images/logo.png" alt="Sip N Chill" class="nav-logo">
+    </a>
+    <div class="nav-links">
+      <a href="#machines-section" class="nav-link">Machines</a>
+      <a href="#story-section" class="nav-link">Story</a>
+      <a href="#partnership-section" class="nav-link">Partnership</a>
+      <a href="#location-section" class="nav-link">Location</a>
+      <a href="#contact-section" class="nav-link">Contact</a>
     </div>
   </nav>
 
+  <!-- Hero -->
+  <section class="hero fade-up">
+    <div class="hero-content">
+      <h1>Kerala’s First Premium Branded Vending Machines</h1>
+      <p>Sip N Chill brings the future of automated refreshment to Kerala. From bustling streets to prime hotspots, we deliver a luxury vending experience with global quality. Whether you’re craving an energizing gym supplement, an ice-cold Coke, or a creamy dessert — our machines are ready 24/7.</p>
+    </div>
+  </section>
+
   <!-- Machines -->
-  <section id="machines">
-    <h2>Our Premium Machines</h2>
+  <section id="machines-section" class="fade-up">
+    <h1>Our Machines</h1>
     <div class="machine-cards">
       <div class="machine-card">
         <img src="assets/images/gym-vending.png" alt="Gym Vending Machine">
-        <h3>Gym Fuel Station</h3>
-        <p>Loaded with protein shakes, energy bars, and hydration drinks for athletes on the go.</p>
+        <h3>Gym Vending Machine</h3>
+        <p>Boost performance with protein drinks, energy boosters, and post-workout snacks — perfectly chilled and always stocked.</p>
       </div>
       <div class="machine-card">
         <img src="assets/images/drinks-vending.png" alt="Drinks Vending Machine">
-        <h3>Thirst Quencher</h3>
-        <p>Stocked with Coke, Red Bull, juices, and chilled water — refreshment anytime.</p>
+        <h3>Drinks Vending Machine</h3>
+        <p>Refreshing Coca-Cola, Red Bull, iced teas, and more — chilled to perfection for instant satisfaction.</p>
       </div>
       <div class="machine-card">
         <img src="assets/images/icecream-vending.png" alt="Ice Cream Vending Machine">
-        <h3>Sweet Treats</h3>
-        <p>Ice creams, desserts, and frozen delights — happiness behind glass doors.</p>
+        <h3>Ice Cream Vending Machine</h3>
+        <p>From classic cones to gourmet frozen desserts — sweet indulgence at the push of a button.</p>
       </div>
     </div>
   </section>
 
-  <!-- Brand Story -->
-  <section id="story" class="story">
-    <h2>Our Story</h2>
-    <p>
-      Sip N Chill was born from a vision: to transform everyday convenience into a luxury experience.
-      While vending machines are common in the USA, in Kerala we’re introducing the very first 
-      *premium branded vending machines* — strategically placed at hotspots, streets, gyms, and more.
-      We believe grabbing a Coke or a protein drink should feel just as stylish as sipping coffee 
-      at a high-end café.
-    </p>
+  <!-- Story -->
+  <section id="story-section" class="fade-up">
+    <h1>Our Story</h1>
+    <p>Sip N Chill was born from a simple yet powerful idea — to bring the luxury of global vending technology to Kerala for the very first time. In countries like the USA, premium vending machines are an everyday convenience. Here, we saw an opportunity to create something revolutionary: fully branded, beautifully designed machines serving quality drinks, fitness supplements, and desserts in prime locations across the state. We are redefining convenience, one Sip N Chill moment at a time.</p>
   </section>
 
-  <!-- Locations -->
-  <section id="locations" class="locations">
-    <h2>Our Locations</h2>
-    <ul>
-      <li>Kochi Marine Drive</li>
-      <li>Trivandrum City Center</li>
-      <li>Calicut Beach Walk</li>
-      <li>Infopark Campus</li>
-    </ul>
-  </section>
-
-  <!-- Partnership Form -->
-  <section id="contact">
-    <h2>Become a Partner</h2>
-    <p>Want Sip N Chill at your location? Fill out the form below and let’s bring premium vending to your space.</p>
+  <!-- Partnership -->
+  <section id="partnership-section" class="fade-up">
+    <h1>Partnership Opportunities</h1>
+    <p>Place a Sip N Chill vending machine at your location and elevate your customers’ experience while adding a steady revenue stream to your business.</p>
     <form>
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Your Email" required />
-      <input type="text" placeholder="Business / Location Name" required />
-      <textarea placeholder="Tell us about your location" rows="5" required></textarea>
-      <button type="submit">Submit Partnership Request</button>
+      <input type="text" placeholder="Business Location" required />
+      <textarea rows="5" placeholder="Tell us about your place" required></textarea>
+      <button type="submit">Send Partnership Request</button>
     </form>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Sip N Chill. All Rights Reserved.
-  </footer>
+  <!-- Location -->
+  <section id="location-section" class="fade-up">
+    <h1>Our Locations</h1>
+    <p>Currently launching in key urban hotspots and expanding across Kerala. Stay tuned for a Sip N Chill near you.</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact-section" class="fade-up">
+    <h1>Contact Us</h1>
+    <p>Email: contact@sipnchill.com</p>
+    <p>Phone: +91-98765-43210</p>
+  </section>
 
   <script>
-    // Mobile menu toggle
-    document.getElementById('mobileMenuToggle').addEventListener('click', () => {
-      document.getElementById('navLinks').classList.toggle('active');
-    });
-
-    // Smooth scroll to top when clicking logo
+    // Logo scroll to top
     document.querySelector('.logo-link').addEventListener('click', function (e) {
       e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // Fade-up animation on scroll
+    const fadeElems = document.querySelectorAll('.fade-up');
+    const fadeOnScroll = () => {
+      fadeElems.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('show');
+        }
+      });
+    };
+    window.addEventListener('scroll', fadeOnScroll);
+    fadeOnScroll();
   </script>
 </body>
 </html>
